@@ -1,0 +1,13 @@
+const router = require("express").Router();
+const { protect } = require("../middleware/authMiddleware");
+const { requireAdmin } = require("../middleware/adminMiddleware");
+const { validateObjectId } = require("../middleware/validateObjectId");
+const admin = require("../controllers/adminController");
+router.use(protect, requireAdmin);
+router.get("/overview", admin.overview);
+router.get("/users", admin.listUsers);
+router.patch("/users/:id/status", validateObjectId(), admin.setUserStatus);
+router.patch("/groups/:id/status", validateObjectId(), admin.setGroupStatus);
+router.delete("/discussions/:id", validateObjectId(), admin.removeDiscussion);
+router.delete("/resources/:id", validateObjectId(), admin.removeResource);
+module.exports = router;

@@ -1,0 +1,14 @@
+{
+  "name": "studycircle",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StudyCircle collaborative learning platform",
+  "scripts": {
+    "setup:windows": "setup.bat",
+    "server": "npm --prefix server run dev",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "test": "npm --prefix server test",
+    "lint": "npm --prefix client run lint"
+  }
+}
